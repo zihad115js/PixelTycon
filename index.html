@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Tycoon – Idle Empire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button id="menuBtn" class="menu-btn">☰ Menu</button>
+            </div>
+            <h1 class="title">Pixel Tycoon</h1>
+            <div class="header-right">
+                <button id="statsBtn" class="stats-btn">📊 Stats</button>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-area">
+            <div class="clicker-section">
+                <div class="coin-display">
+                    <div class="coins-label">Coins</div>
+                    <div id="coinCount" class="coin-count">0</div>
+                </div>
+                <button id="clickButton" class="click-button">
+                    <span class="button-text">CLICK HERE!</span>
+                    <span class="button-icon">🍋</span>
+                </button>
+                <div class="income-display">
+                    <span>Per Second: <span id="incomePerSec">0</span></span>
+                </div>
+            </div>
+
+            <!-- Animation Container for Floating Coins -->
+            <div id="floatingCoinsContainer" class="floating-coins-container"></div>
+        </main>
+
+        <!-- Tab Navigation -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="businesses">🏢 Businesses</button>
+            <button class="tab-btn" data-tab="upgrades">⚡ Upgrades</button>
+            <button class="tab-btn" data-tab="prestige">✨ Prestige</button>
+            <button class="tab-btn" data-tab="shop">🛍️ Shop</button>
+        </nav>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Businesses Tab -->
+            <div id="businesses" class="tab-pane active">
+                <div class="section-title">Own Businesses</div>
+                <div id="businessList" class="business-list"></div>
+            </div>
+
+            <!-- Upgrades Tab -->
+            <div id="upgrades" class="tab-pane">
+                <div class="section-title">Permanent Upgrades</div>
+                <div class="upgrades-container">
+                    <div id="clickUpgradesList" class="upgrades-section">
+                        <h3>Click Upgrades</h3>
+                        <div id="clickUpgradesContainer" class="upgrades-grid"></div>
+                    </div>
+                    <div id="businessUpgradesList" class="upgrades-section">
+                        <h3>Business Upgrades</h3>
+                        <div id="businessUpgradesContainer" class="upgrades-grid"></div>
+                    </div>
+                    <div id="specialUpgradesList" class="upgrades-section">
+                        <h3>Special Upgrades</h3>
+                        <div id="specialUpgradesContainer" class="upgrades-grid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prestige Tab -->
+            <div id="prestige" class="tab-pane">
+                <div class="section-title">Prestige System</div>
+                <div class="prestige-info">
+                    <div class="info-card">
+                        <div class="info-label">Prestige Tokens</div>
+                        <div id="prestigeTokens" class="info-value">0</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Prestige Multiplier</div>
+                        <div id="prestigeMultiplier" class="info-value">1.00x</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Prestige Count</div>
+                        <div id="prestigeCount" class="info-value">0</div>
+                    </div>
+                </div>
+                <div class="prestige-requirement">
+                    <div id="prestigeRequirement" class="requirement-text">Next prestige at: 1,000,000 coins</div>
+                    <button id="prestigeBtn" class="prestige-btn">✨ PRESTIGE</button>
+                </div>
+            </div>
+
+            <!-- Shop Tab -->
+            <div id="shop" class="tab-pane">
+                <div class="section-title">Gem Shop</div>
+                <div class="shop-container">
+                    <div id="gemPacks" class="gem-packs"></div>
+                    <div id="premiumOffers" class="premium-offers"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Space -->
+        <div id="adContainer" class="ad-container">
+            <div class="banner-ad">Advertisement</div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <div class="settings-group">
+                <label>
+                    <input type="checkbox" id="soundToggle" checked>
+                    Sound Effects
+                </label>
+                <label>
+                    <input type="checkbox" id="musicToggle">
+                    Background Music
+                </label>
+                <label>
+                    <input type="checkbox" id="autoSaveToggle" checked>
+                    Auto Save
+                </label>
+            </div>
+            <button id="resetGameBtn" class="reset-btn">Reset Game</button>
+            <button id="exportSaveBtn" class="export-btn">Export Save</button>
+            <button id="importSaveBtn" class="import-btn">Import Save</button>
+        </div>
+    </div>
+
+    <!-- Stats Modal -->
+    <div id="statsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Game Statistics</h2>
+            <div id="statsContent" class="stats-content"></div>
+        </div>
+    </div>
+
+    <!-- Rewarded Ad Modal -->
+    <div id="rewardedAdModal" class="modal">
+        <div class="modal-content reward-modal">
+            <h2>Watch Ad for Reward</h2>
+            <div id="rewardDisplay" class="reward-display">
+                <p id="rewardText">Loading ad...</p>
+            </div>
+            <button id="skipAdBtn" class="skip-btn">Skip</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
